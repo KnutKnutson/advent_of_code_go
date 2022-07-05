@@ -17,11 +17,6 @@ func NewRingBuffer[T any](size int) *RingBuffer[T] {
 	}
 }
 
-func (r *RingBuffer[T]) init(size int) {
-	r.size = size
-	r.buffer = make([]T, size)
-}
-
 func (r *RingBuffer[T]) Add(value T) {
 	if len(r.buffer) < r.size {
 		r.buffer = append(r.buffer, value)
